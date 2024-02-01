@@ -104,13 +104,18 @@ IncludeTemplateLangFile(__FILE__);
     <!-- /nav -->
     <!--цепочка навигации,не выврдиться на главной -->
 	<? if($APPLICATION->GetCurPage() != '/' ):?>
-    <div class="breadcrumbs-box">
-        <div class="inner-wrap">
-            <a href="">Главная</a>
-            <a href="">Мебель</a>
-            <span>Выставки и события</span>
-        </div>
-    </div>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:breadcrumb",
+			"breadcrumb_ex",
+			Array()
+		);?>
+<!--    <div class="breadcrumbs-box">-->
+<!--        <div class="inner-wrap">-->
+<!--            <a href="">Главная</a>-->
+<!--            <a href="">Мебель</a>-->
+<!--            <span>Выставки и события</span>-->
+<!--        </div>-->
+<!--    </div>-->
 	<?endif ;?>
     <!-- page -->
     <div class="page">
