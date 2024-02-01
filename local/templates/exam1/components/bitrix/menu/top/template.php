@@ -12,23 +12,33 @@
 $previousLevel = 0;
 foreach($arResult as $arItem):?>
 
+
+
 	<?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
 		<?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 	<?endif?>
-
 	<?if ($arItem["IS_PARENT"]):?>
+	    <?if ($arItem["DEPTH_LEVEL"] == 1):?>
 
-		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-			<li>
-                <a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?>"><?=$arItem["TEXT"]?></a>
-				<ul>
+            <?
+            $colorVar="";//Очищаем переменную в цикле иначе покрасим все меню верхнего уровня
+            //Получаем значение свойства цвета из меню
+            if (isset($arItem["PARAMS"]["COLOR"])):
+                $colorVar = $arItem["PARAMS"]["COLOR"];
+            endif;
+            ?>
+
+            <li>
+                <a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?> <?=$colorVar;?> "> <?=$arItem["TEXT"]?></a>
+                <ul>
 		<?else:?>
 			<li<?if ($arItem["SELECTED"]):?> class="item-selected"<?endif?>><a href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
 				<ul>
 		<?endif?>
-                    <?if (isset($arItem["PARAMS"]["DESC"])):?>
-                    <div class="menu-text"><?=$arItem["PARAMS"]["DESC"]?></div>
-                    <?endif;?>
+                <?if (isset($arItem["PARAMS"]["DESC"])):?>
+                <div class="menu-text"><?=$arItem["PARAMS"]["DESC"]?></div>
+                <?endif;?>
+
 
 
 	<?else:?>
