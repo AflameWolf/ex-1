@@ -2,7 +2,7 @@
 <?
 IncludeTemplateLangFile(__FILE__);
 ?>
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="<?=LANGUAGE_ID?>">
 
