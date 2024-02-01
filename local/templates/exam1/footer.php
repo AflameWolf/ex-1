@@ -107,7 +107,7 @@ IncludeTemplateLangFile(__FILE__);
                 <div class="title-block">О магазине</div>
 	            <?$APPLICATION->IncludeComponent(
 		            "bitrix:menu",
-		            ".default",
+		            "my_bot",
 		            Array(
 			            "ALLOW_MULTI_SELECT" => "N",
 			            "CHILD_MENU_TYPE" => "left",
@@ -116,7 +116,7 @@ IncludeTemplateLangFile(__FILE__);
 			            "MAX_LEVEL" => "1",
 			            "MENU_CACHE_GET_VARS" => array(),
 			            "MENU_CACHE_TIME" => "3600",
-			            "MENU_CACHE_TYPE" => "N",
+			            "MENU_CACHE_TYPE" => "A",
 			            "MENU_CACHE_USE_GROUPS" => "Y",
 			            "ROOT_MENU_TYPE" => "my_bottom",
 			            "USE_EXT" => "Y"
@@ -153,7 +153,16 @@ IncludeTemplateLangFile(__FILE__);
             <div class="title-block"><?=GetMessage("CONTACT");?></div>
             <div class="loc-block">
                 <div class="address">ул. Летняя, стр.12, офис 512</div>
-                <div class="phone"><a href="tel:84952128506">8 (495) 212-85-06</a>
+	            <?$APPLICATION->IncludeComponent(
+		            "bitrix:main.include",
+		            "",
+		            Array(
+			            "AREA_FILE_SHOW" => "file",
+			            "AREA_FILE_SUFFIX" => "inc",
+			            "EDIT_TEMPLATE" => "",
+			            "PATH" => "local/templates/exam1/include/phone.php"
+		            )
+	            );?>
                 </div>
             </div>
             <div class="main-soc-block">
