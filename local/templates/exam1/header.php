@@ -12,9 +12,13 @@ IncludeTemplateLangFile(__FILE__);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/css/reset.css" );
 	$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/css/style.css" );
 	$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/css/owl.carousel.css" );
-	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/jquery.min.js"); //метод устарел?
-	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/owl.carousel.min.js");
-	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/scripts.js");
+	//	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/jquery.min.js"); //метод устарел?
+	//	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/owl.carousel.min.js");
+	//	$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."./js/scripts.js");
+	\Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/jquery.min.js");
+	\Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/owl.carousel.min.js");
+	\Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/scripts.js");
+
     $APPLICATION->ShowHead();
 
     ?>
