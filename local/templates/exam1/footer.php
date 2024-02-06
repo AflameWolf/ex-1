@@ -184,15 +184,17 @@ IncludeTemplateLangFile(__FILE__);
             <div class="loc-block">
                 <div class="address">ул. Летняя, стр.12, офис 512</div>
 	            <?$APPLICATION->IncludeComponent(
-		            "bitrix:main.include",
-		            "",
-		            Array(
-			            "AREA_FILE_SHOW" => "file",
-			            "AREA_FILE_SUFFIX" => "inc",
-			            "EDIT_TEMPLATE" => "",
-			            "PATH" => "local/templates/exam1/include/phone.php"
-		            )
-	            );?>
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "local/templates/exam1/include/phone.php",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
                 </div>
             </div>
             <div class="main-soc-block">
